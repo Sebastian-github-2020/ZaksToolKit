@@ -1,71 +1,74 @@
-﻿<Window
-    x:Class="ZaksToolKit.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:ZaksToolKit"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="ZaksToolKit"
-    Width="800"
-    Height="450"
-    mc:Ignorable="d">
-    <Grid Margin="5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="60" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <TextBox
-                Name="Md5Txt"
-                MinWidth="200"
-                Foreground="Gray"
-                GotFocus="Md5Txt_GotFocus"
-                LostFocus="Md5Txt_LostFocus"
-                Text="请输入要生成md5的值" />
-            <StackPanel
-                Grid.Column="1"
-                VerticalAlignment="Center"
-                Orientation="Vertical">
-                <Button Name="makeMd5" Click="makeMd5_Click">生成</Button>
-                <ComboBox
-                    Name="bigOrSmall"
-                    Grid.Column="1"
-                    Grid.ColumnSpan="2"
-                    SelectionChanged="bigOrSmall_Selected">
-                    <ComboBoxItem>
-                        <TextBlock>大</TextBlock>
-                    </ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">
-                        <TextBlock>小</TextBlock>
-                    </ComboBoxItem>
-                </ComboBox>
-            </StackPanel>
+﻿<Window x:Class="ZaksToolKit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:ZaksToolKit"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="ZaksToolKit"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <TabControl>
+        <TabItem Header="MD5">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="Md5Txt"
+                             MinWidth="200"
+                             Foreground="Gray"
+                             GotFocus="Md5Txt_GotFocus"
+                             LostFocus="Md5Txt_LostFocus"
+                             Text="请输入要生成md5的值" />
+                    <StackPanel Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                        <Button Name="makeMd5" Click="makeMd5_Click">生成</Button>
+                        <ComboBox Name="bigOrSmall"
+                                  Grid.Column="1"
+                                  Grid.ColumnSpan="2"
+                                  SelectionChanged="bigOrSmall_Selected">
+                            <ComboBoxItem>
+                                <TextBlock>大</TextBlock>
+                            </ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">
+                                <TextBlock>小</TextBlock>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
 
-            <TextBox
-                Name="resultTxt"
-                Grid.Column="2"
-                BorderThickness="1"
-                IsReadOnly="True" />
+                    <TextBox Name="resultTxt"
+                             Grid.Column="2"
+                             BorderThickness="1"
+                             IsReadOnly="True" />
 
-        </Grid>
-        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Content="生成MD5" />
-            <!--<TextBox
-                Name="Md5Txt"
-                MinWidth="200"
-                Padding="10,0,10,0"
-                VerticalContentAlignment="Center"
-                Foreground="Gray"
-                GotFocus="Md5Txt_GotFocus"
-                LostFocus="Md5Txt_LostFocus"
-                Text="请输入要生成md5的值" />-->
-            <!--<Button Name="makeMd5" Click="makeMd5_Click">生成MD5</Button>-->
-        </StackPanel>
+                </Grid>
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                    <Label Content="生成MD5" />
+                    <!--<TextBox
+             Name="Md5Txt"
+             MinWidth="200"
+             Padding="10,0,10,0"
+             VerticalContentAlignment="Center"
+             Foreground="Gray"
+             GotFocus="Md5Txt_GotFocus"
+             LostFocus="Md5Txt_LostFocus"
+             Text="请输入要生成md5的值" />-->
+                    <!--<Button Name="makeMd5" Click="makeMd5_Click">生成MD5</Button>-->
+                </StackPanel>
 
-    </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="TabItem">
+            <Grid Background="#FFE5E5E5" />
+        </TabItem>
+    </TabControl>
+
 </Window>
