@@ -47,5 +47,16 @@ namespace ZaksToolKit {
         private void Md5Txt_LostFocus(object sender, RoutedEventArgs e) {
             MyLog.logger.Info("丢失焦点");
         }
+
+
+
+        private void bigOrSmall_Selected(object sender, RoutedEventArgs e) {
+            ComboBox box = (ComboBox)sender;
+            string val = (string)box.SelectedItem;
+            MyLog.logger.Info($"值变化{val}");
+            if(val == "大") {
+
+            }
+        }
     }
 }
