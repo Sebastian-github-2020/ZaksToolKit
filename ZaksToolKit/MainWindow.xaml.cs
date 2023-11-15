@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ZaksToolKit.Tools;
+using ZaksTool;
 
 namespace ZaksToolKit {
     /// <summary>
@@ -22,16 +23,29 @@ namespace ZaksToolKit {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+            MyLog.logger.Info("主窗口启动");
+
+        }
+        /// <summary>
+        /// 生成md5
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void makeMd5_Click(object sender, RoutedEventArgs e) {
+            string md5SourceStr = this.Md5Txt.Text;
+            if(md5SourceStr.Length > 0) {
+                this.resultTxt.Text = ZaksTool.ZaksMd5.makeMd5(md5SourceStr, false);
+            }
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e) {
-            MyLog.logger.Trace("点击按钮");
-            MyLog.logger.Info("点击按钮");
-            MyLog.logger.Debug("点击按钮");
-            MyLog.logger.Warn("点击按钮");
-            MyLog.logger.Error("点击按钮");
-            MyLog.logger.Fatal("点击按钮");
+        private void Md5Txt_GotFocus(object sender, RoutedEventArgs e) {
+            MyLog.logger.Info("获得焦点");
+            this.Md5Txt.Text = "";
+            this.Md5Txt.Foreground = Brushes.Red;
+        }
 
+        private void Md5Txt_LostFocus(object sender, RoutedEventArgs e) {
+            MyLog.logger.Info("丢失焦点");
         }
     }
 }

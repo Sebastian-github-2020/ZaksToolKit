@@ -9,8 +9,28 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock FontSize="50">ToolKit</TextBlock>
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+            <!--<Label Content="生成MD5" />-->
+            <TextBox
+                Name="Md5Txt"
+                MinWidth="200"
+                Padding="10,0,10,0"
+                LostFocus="Md5Txt_LostFocus"
+                VerticalContentAlignment="Center"
+                Foreground="Gray"
+                GotFocus="Md5Txt_GotFocus"
+                Text="请输入要生成md5的值" />
+            <Button Name="makeMd5" Click="makeMd5_Click">生成MD5</Button>
+        </StackPanel>
+        <TextBox
+            Name="resultTxt"
+            Grid.Row="1"
+            BorderThickness="0"
+            IsReadOnly="True" />
     </Grid>
 </Window>
